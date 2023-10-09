@@ -44,8 +44,7 @@ app.post('/upload', upload.single('photo'), (req, res) => {
         if (err) {
             return res.status(500).send('Error uploading photo.');
         }
-
-        res.redirect('/');
+        res.send("Success");
     });
 });
 
