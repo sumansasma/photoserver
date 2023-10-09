@@ -10,7 +10,7 @@ const port = 3000;
 // Enable CORS for all routes
 app.use(cors()); // Add this line
 
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('https://photoserver-pwtp.onrender.com/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
