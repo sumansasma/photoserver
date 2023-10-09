@@ -15,7 +15,7 @@
 
   <script>
     function loadPhotos() {
-      fetch('http://localhost:3000/photos')
+      fetch('https://photoserver-pwtp.onrender.com/photos')
         .then((response) => response.json())
         .then((photos) => {
           const photoList = document.getElementById('photoList');
@@ -27,7 +27,7 @@
 
             const img = document.createElement('img');
             console.log(photo.filename)
-            img.src = `http://localhost:3000/uploads/${photo.filename}`;
+            img.src = `https://photoserver-pwtp.onrender.com/uploads/${photo.filename}`;
             img.alt = 'Uploaded Photo';
 
             photoItem.appendChild(img);
