@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>View Photos</title>
+  <style>
+    .photo-item {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>View Photos</h1>
+  <div id="photoList"></div>
+
+  <script>
+    function loadPhotos() {
+      fetch('http://localhost:3000/photos')
+        .then((response) => response.json())
+        .then((photos) => {
+          const photoList = document.getElementById('photoList');
+          photoList.innerHTML = '';
+
+          photos.forEach((photo) => {
+            const photoItem = document.createElement('div');
+            photoItem.className = 'photo-item';
+
+            const img = document.createElement('img');
+            console.log(photo.filename)
+            img.src = `http://localhost:3000/uploads/${photo.filename}`;
+            img.alt = 'Uploaded Photo';
+
+            photoItem.appendChild(img);
+
+            photoList.appendChild(photoItem);
+          });
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+
+    // Initial load of photos
+    loadPhotos();
+  </script>
+</body>
+</html>
